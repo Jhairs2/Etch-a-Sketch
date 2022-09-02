@@ -9,23 +9,31 @@ html {
     background-image: url("https://images.unsplash.com/photo-1516053256215-94022213b13c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
 }
 
+
+body {
+    display: flex;
+    flex-direction: column;
+}
 /* header content */
 .header {
     display: flex;
     flex-direction: column;
-    padding: 16px;
     align-items: center;
     width: 100%;
+    height: 150px;
     gap: 25px;
-    font-family: "Great Vibes", cursive;
+    font-family: Brush Script MT, cursive;
 }
 
 .name {
-    color: white;
-    background-color: #8c91ab;
+    justify-content: center;
+    color: black;
+    font-size: 2rem;
+
 }
 
  .links div {
+    position: f;
     font-weight: bold;
     font-size: 2rem;
     display: flex;
@@ -33,14 +41,18 @@ html {
 }
 
 a {
-    
+    color: black;
     text-decoration: none;
 }
 
+a:hover {
+    color: rgba(255, 255, 255, 90%);
+}
 /* End of header content */
 
 /* main container content */
 .main {
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,4 +78,33 @@ a {
 }
 /* End of main container content */
 
+/* Footer Content */
+.footer {
+    margin-top: 25px;
+    height: 75px;
+    display: flex;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
 
+.footer-info {
+    color: black;
+}
+
+/* End of footer content */
+
+/* Buttons */
+
+button {
+    font-size: 1rem;
+    width: 115px;
+    background-color: lightgray;
+    border-radius: 6px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 80%);
+}
+/* End of button styling */
