@@ -2,7 +2,7 @@ let click = false;
 let color = document.querySelector("#colorSelect");
 
 // Create the grid
-function makeGrid(size){
+function makeGrid(size) {
     const grid = document.querySelector(".grid");
     const eraser = document.querySelector(".eraser");
     const reset = document.querySelector(".reset");
@@ -11,15 +11,15 @@ function makeGrid(size){
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     // Loop will create rows and columns and append them to the grid
-    for(let i = 0; i < (size**2); i++) {
-    let gridSquare = document.createElement("div");
-    gridSquare.classList.add("square");
-    
-    // gives squares coloring function and erase function
-    gridSquare.addEventListener("mouseover", draw);  
-    eraser.addEventListener("click", erase);
-    reset.addEventListener("click", resetBttn);    
-    grid.insertAdjacentElement("beforeend", gridSquare);
+    for (let i = 0; i < (size ** 2); i++) {
+        let gridSquare = document.createElement("div");
+        gridSquare.classList.add("square");
+
+        // gives squares coloring function and erase function
+        gridSquare.addEventListener("mouseover", draw);
+        eraser.addEventListener("click", erase);
+        reset.addEventListener("click", resetBttn);
+        grid.insertAdjacentElement("beforeend", gridSquare);
     }
 }
 
@@ -35,22 +35,22 @@ function createGrid() {
 
 // allow user to color squares in grid and 
 function draw() {
-    
-    if(click) {
+
+    if (click) {
         this.style.backgroundColor = color.value;
     }
-    }     
+}
 
 // if user clicks draw will turn off or back on
-document.querySelector("body").addEventListener("click", function(e) {
-   if(e.target.tagName != "BUTTON" && e.target.tagName != "INPUT") {
-    if(click) {
-    click = false;
-   } 
-   else {
-    click = true;
-   }
-}
+document.querySelector("body").addEventListener("click", function (e) {
+    if (e.target.tagName != "BUTTON" && e.target.tagName != "INPUT") {
+        if (click) {
+            click = false;
+        }
+        else {
+            click = true;
+        }
+    }
 })
 
 // allow user to erase squares
@@ -64,7 +64,7 @@ function erase() {
 function resetBttn() {
     click = false;
     let squares = document.querySelectorAll(".square");
-    squares.forEach(square=> {
+    squares.forEach(square => {
         square.style.backgroundColor = "white"
     })
 
