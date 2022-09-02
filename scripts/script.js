@@ -14,7 +14,7 @@ function makeGrid(size) {
     for (let i = 0; i < (size ** 2); i++) {
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("square");
-
+        gridSquare.style.backgroundColor = "white";
         // gives squares coloring function and erase function
         gridSquare.addEventListener("mouseover", draw);
         eraser.addEventListener("click", erase);
