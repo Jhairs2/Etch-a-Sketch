@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 /* header content */
 .header {
     display: flex;
@@ -32,7 +33,7 @@ body {
 
 }
 
- .links div {
+.links div {
     position: f;
     font-weight: bold;
     font-size: 2rem;
@@ -48,6 +49,7 @@ a {
 a:hover {
     color: rgba(255, 255, 255, 90%);
 }
+
 /* End of header content */
 
 /* main container content */
@@ -86,6 +88,7 @@ a:hover {
 .slider:hover {
     cursor: pointer;
 }
+
 /* End of main container content */
 
 /* Footer Content */
@@ -117,4 +120,5 @@ button:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 80%);
 }
+
 /* End of button styling */
