@@ -5,6 +5,7 @@ let color = document.querySelector("#colorSelect");
 function makeGrid(size){
     const grid = document.querySelector(".grid");
     const eraser = document.querySelector(".eraser");
+    const reset = document.querySelector(".reset");
     // Create columns and rows in grid
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -16,7 +17,8 @@ function makeGrid(size){
     
     // gives squares coloring function and erase function
     gridSquare.addEventListener("mouseover", draw);  
-    eraser.addEventListener("click", erase);    
+    eraser.addEventListener("click", erase);
+    reset.addEventListener("click", resetBttn);    
     grid.insertAdjacentElement("beforeend", gridSquare);
     }
 }
@@ -24,13 +26,13 @@ function makeGrid(size){
 
 // Add dynamic sizing to grid
 function createGrid() {
-    let gridSize = document.querySelector(".slider")
+    let gridSize = document.querySelector(".slider");
     makeGrid(gridSize.value);
 }
 
 
 
-createGrid()
+
 // allow user to color squares in grid and 
 function draw() {
     
@@ -41,7 +43,7 @@ function draw() {
 
 // if user clicks draw will turn off or back on
 document.querySelector("body").addEventListener("click", function(e) {
-   if(e.target.tagName != "BUTTON") {
+   if(e.target.tagName != "BUTTON" && e.target.tagName != "INPUT") {
     if(click) {
     click = false;
    } 
@@ -51,14 +53,24 @@ document.querySelector("body").addEventListener("click", function(e) {
 }
 })
 
-
-
 // allow user to erase squares
 function erase() {
+    click = true;
     color.value = "#FFFFFF";
 }
 
 
+// Reset grid 
+function resetBttn() {
+    click = false;
+    let squares = document.querySelectorAll(".square");
+    squares.forEach(square=> {
+        square.style.backgroundColor = "white"
+    })
+
+}
+
+createGrid()
 
 
 
