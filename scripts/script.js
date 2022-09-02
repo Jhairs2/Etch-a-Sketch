@@ -27,6 +27,8 @@ function makeGrid(size) {
 // Add dynamic sizing to grid
 function createGrid() {
     let gridSize = document.querySelector(".slider");
+    let output = document.querySelector('output');
+    output.textContent = gridSize.value + " x " + gridSize.value;
     makeGrid(gridSize.value);
 }
 
