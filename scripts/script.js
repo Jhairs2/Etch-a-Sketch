@@ -48,8 +48,11 @@ function draw(e) {
     }
 }
 function onTouch(e) {
+    window.addEventListener('touchstart', function() {
+        // the user touched the screen!
     e.preventDefault();
     this.style.backgroundColor = color.value;
+})
 }
 
 // allow user to erase squares
