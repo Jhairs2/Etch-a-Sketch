@@ -61,6 +61,7 @@ a:hover {
 }
 
 .grid {
+    touch-action: none;
     height: 500px;
     width: 500px;
     display: grid;
