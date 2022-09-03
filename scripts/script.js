@@ -56,7 +56,7 @@ grid.addEventListener("touchstart", () => {
 
 function onTouch(e) {
 
-    if (e.type === 'touchstart' && mouseDown) {
+    if (e.type === 'touchmove' && mouseDown) {
         // the user touched the screen!
     this.style.backgroundColor = color.value;
     }
