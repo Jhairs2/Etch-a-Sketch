@@ -16,7 +16,7 @@ function makeGrid(size) {
         gridSquare.style.backgroundColor = "white";
         // gives squares coloring function and erase function
         gridSquare.addEventListener("mouseover", draw)
-        gridSquare.addEventListener("touch", onTouch);
+        gridSquare.addEventListener("touchmove", onTouch);
         eraser.addEventListener("click", erase);
         reset.addEventListener("click", resetBttn);
         grid.insertAdjacentElement("beforeend", gridSquare);
