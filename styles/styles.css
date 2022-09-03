@@ -17,12 +17,11 @@ body {
 
 /* header content */
 .header {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 150px;
-    gap: 25px;
+    min-height: 150px;
     font-family: Brush Script MT, cursive;
 }
 
@@ -34,11 +33,11 @@ body {
 }
 
 .links div {
-    position: f;
     font-weight: bold;
     font-size: 2rem;
+    padding: 0.5em;
     display: flex;
-    gap: 60px;
+    gap: 2em;
 }
 
 a {
@@ -54,8 +53,8 @@ a:hover {
 
 /* main container content */
 .main {
-    margin-top: 25px;
     display: flex;
+    margin-top: 1.5em;
     flex-direction: column;
     align-items: center;
     gap: 25px;
@@ -93,7 +92,7 @@ a:hover {
 
 /* Footer Content */
 .footer {
-    margin-top: 25px;
+    margin-top: 1.5em;
     height: 75px;
     display: flex;
     font-size: 1.5rem;
