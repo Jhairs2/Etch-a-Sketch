@@ -121,3 +121,14 @@ button:hover {
 }
 
 /* End of button styling */
+
+@media only screen and (max-width:600px){
+    .grid {
+        max-width: 350px;
+    }
+
+    button {
+        min-width: 75px;
+        margin: 0.5em;
+    }
+}
