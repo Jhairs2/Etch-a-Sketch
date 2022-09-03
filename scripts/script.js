@@ -46,11 +46,16 @@ function draw(e) {
         
         this.style.backgroundColor = color.value;
     }
-}
+} 
+
+grid.addEventListener("touchStart", () => {
+        preventDefault()
+})
+
 function onTouch(e) {
 
+   
         // the user touched the screen!
-    e.preventDefault();
     this.style.backgroundColor = color.value;
 
 }
