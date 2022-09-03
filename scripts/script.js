@@ -50,7 +50,7 @@ function draw(e) {
 } 
 
 // Function to allow user on touch screen to draw: working progress
-grid.ontouchstart= () => (mouseDown = true)
+grid.ontouchmove= () => (mouseDown = true)
 grid.ontouchend= () => (mouseDown = false)
 function onTouch(e) {
 
