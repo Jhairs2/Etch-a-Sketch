@@ -1,4 +1,3 @@
-let click = false;
 let color = document.querySelector("#colorSelect");
 
 // Create the grid
@@ -11,7 +10,7 @@ function makeGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     // Loop will create rows and columns and append them to the grid
-    for (let i = 0; i < (size ** 2); i++) {
+    for (let i = 0; i < (size * size); i++) {
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("square");
         gridSquare.style.backgroundColor = "white";
@@ -34,37 +33,28 @@ function createGrid() {
 
 
 
+// if user clicks draw will turn off or back on
+let mouseDown = false;
+const grid = document.querySelector(".grid");
+grid.onmousedown = () => (mouseDown = true)
+grid.onmouseup = () => (mouseDown = false)
 
 // allow user to color squares in grid and 
-function draw() {
-
-    if (click) {
+function draw(e) {
+    if (e.type === 'mouseover' && mouseDown) { 
         this.style.backgroundColor = color.value;
     }
 }
 
-// if user clicks draw will turn off or back on
-document.querySelector("body").addEventListener("click", function (e) {
-    if (e.target.tagName != "BUTTON" && e.target.tagName != "INPUT") {
-        if (click) {
-            click = false;
-        }
-        else {
-            click = true;
-        }
-    }
-})
 
 // allow user to erase squares
 function erase() {
-    click = true;
     color.value = "#FFFFFF";
 }
 
 
 // Reset grid 
 function resetBttn() {
-    click = false;
     let squares = document.querySelectorAll(".square");
     squares.forEach(square => {
         square.style.backgroundColor = "white"
