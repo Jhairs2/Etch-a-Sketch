@@ -16,7 +16,7 @@ function makeGrid(size) {
         gridSquare.style.backgroundColor = "white";
         // gives squares coloring function and erase function
         gridSquare.addEventListener("mouseover", draw)
-        gridSquare.addEventListener("touchmove", onTouch);
+        gridSquare.addEventListener("touch", onTouch);
         eraser.addEventListener("click", erase);
         reset.addEventListener("click", resetBttn);
         grid.insertAdjacentElement("beforeend", gridSquare);
@@ -39,8 +39,6 @@ let mouseDown = false;
 const grid = document.querySelector(".grid");
 grid.onmousedown = () => (mouseDown = true)
 grid.onmouseup = () => (mouseDown = false)
-grid.touchstart = () => (mouseDown = true)
-grid.touchend = () => (mouseDown = false)
 
 // allow user to color squares in grid and 
 function draw(e) {
@@ -56,10 +54,9 @@ grid.addEventListener("touchstart", () => {
 
 function onTouch(e) {
 
-    if (e.type === 'touchmove' && mouseDown) {
+    
         // the user touched the screen!
     this.style.backgroundColor = color.value;
-    }
 
 }
 
