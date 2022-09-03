@@ -43,7 +43,7 @@ grid.touchend = () => (mouseDown = false)
 
 // allow user to color squares in grid and 
 function draw(e) {
-    if ((e.type === 'mouseover' && mouseDown) || (e.type === 'ontouchstart' && mouseDown)) { 
+    if ((e.type === 'mouseover' && mouseDown) || (e.type === 'touchstart' && mouseDown)) { 
         e.preventDefault();
         this.style.backgroundColor = color.value;
     }
