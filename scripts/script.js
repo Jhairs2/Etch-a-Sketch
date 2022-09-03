@@ -54,7 +54,7 @@ grid.ontouchstart= () => (mouseDown = true)
 grid.ontouchend= () => (mouseDown = false)
 function onTouch(e) {
 
-        if (e.type === 'touchmove' && mouseDown) { 
+        if (e.type === 'touchmove') { 
     this.style.backgroundColor = color.value;
         }
 
