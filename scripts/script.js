@@ -39,6 +39,8 @@ let mouseDown = false;
 const grid = document.querySelector(".grid");
 grid.onmousedown = () => (mouseDown = true)
 grid.onmouseup = () => (mouseDown = false)
+grid.touchstart = () => (mouseDown = true)
+grid.touchend = () => (mouseDown = false)
 
 // allow user to color squares in grid and 
 function draw(e) {
@@ -54,9 +56,10 @@ grid.addEventListener("touchstart", () => {
 
 function onTouch(e) {
 
-   
+    if (e.type === 'touchstart' && mouseDown) {
         // the user touched the screen!
     this.style.backgroundColor = color.value;
+    }
 
 }
 
