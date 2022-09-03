@@ -52,7 +52,6 @@ function draw(e) {
 
 
 function onTouch() {
-    preventDefault()
         // the user touched the screen!
         if (e.type === 'touchmove' && mouseDown) { 
     this.style.backgroundColor = color.value;
