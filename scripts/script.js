@@ -63,7 +63,16 @@ function draw(e) {
 // Function to allow user on touch screen to draw: working progress
 function onTouch(e) {
     e.preventDefault();
-    this.style.backgroundColor = squareColor.value;
+    if (rainbowBttn.checked) {
+        let r = Math.floor(Math.random()*256);
+        let g = Math.floor(Math.random()*256);
+        let b = Math.floor(Math.random()*256);
+        this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } 
+    
+    else {
+        this.style.backgroundColor = squareColor.value;
+    }
 }
 
 // Function will allow user to erase
