@@ -68,14 +68,14 @@ function onTouch(e) {
 
 // Function will allow user to erase
 function erase() {
-    squareColor.value = "#d4d4d8";
+    squareColor.value = bgColor.value;
 }
 
 // Reset grid 
 function resetBttn() {
     let squares = document.querySelectorAll(".square");
     squares.forEach(square => {
-        square.style.backgroundColor = ""
+        square.style.backgroundColor = "";
     })
 
 }
