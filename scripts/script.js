@@ -24,7 +24,7 @@ function makeGrid(size) {
         gridSquare.classList.add("square");
         gridSquare.style.border = "2px solid black";
         gridSquare.addEventListener("mouseover", draw);
-        gridSquare.addEventListener("touchstart", draw);
+        gridSquare.addEventListener("touchstart", onTouch);
         eraser.addEventListener("click", erase);
         reset.addEventListener("click", resetBttn);
         grid.insertAdjacentElement("beforeend", gridSquare);
