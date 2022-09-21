@@ -1,78 +1,86 @@
-let color = document.querySelector("#colorSelect");
+// Global Variables
+const grid = document.querySelector(".grid");
+const eraser = document.querySelector(".eraser");
+const reset = document.querySelector(".reset");
+const rainbowBttn = document.getElementById("rainbow");
+let bgColor = document.getElementById("bgColor");
+let squareColor = document.getElementById("squareColor");
 
-// Create the grid
+// while user holds click draw will turn on
+let mouseDown = false;
+grid.onmousedown = () => (mouseDown = true)
+grid.onmouseup = () => (mouseDown = false)
+
+// Functions
+// Function to create grid
 function makeGrid(size) {
-    const grid = document.querySelector(".grid");
-    const eraser = document.querySelector(".eraser");
-    const reset = document.querySelector(".reset");
-    // Create columns and rows in grid
+    let gridSquare = grid.querySelectorAll("div");
+    gridSquare.forEach(div => div.remove());
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-    // Loop will create rows and columns and append them to the grid
-    for (let i = 0; i < (size * size); i++) {
-        let gridSquare = document.createElement("div");
+    for (let i = 0; i < size ** 2; i++) {
+        gridSquare = document.createElement("div");
         gridSquare.classList.add("square");
-        gridSquare.style.backgroundColor = "white";
-        // gives squares coloring function and erase function
-        gridSquare.addEventListener("mouseover", draw)
-        gridSquare.addEventListener("touchstart", onTouch);
+        gridSquare.style.border = "2px solid black";
+        gridSquare.addEventListener("mouseover", draw);
         eraser.addEventListener("click", erase);
         reset.addEventListener("click", resetBttn);
         grid.insertAdjacentElement("beforeend", gridSquare);
     }
 }
 
-
-// Add dynamic sizing to grid
-function createGrid() {
-    let gridSize = document.querySelector(".slider");
-    let output = document.querySelector('output');
+// Function to make grid size depend on value set
+function dynamicGrid() {
+    let gridSize = document.getElementById("gridSize");
+    let output = document.getElementById('gridInfo');
     output.textContent = gridSize.value + " x " + gridSize.value;
     makeGrid(gridSize.value);
+};
+
+// Function to change background color of grid
+function changeBackgroundColor() {
+    grid.style.backgroundColor = bgColor.value;
 }
 
-
-
-// if user clicks draw will turn off or back on
-let mouseDown = false;
-const grid = document.querySelector(".grid");
-grid.onmousedown = () => (mouseDown = true)
-grid.onmouseup = () => (mouseDown = false)
-
-
-// allow user to color squares in grid and 
+// Function will allow user to draw with specified color
 function draw(e) {
-    if (e.type === 'mouseover' && mouseDown) { 
-        
-        this.style.backgroundColor = color.value;
+    if (e.type === 'mouseover' && mouseDown) {
+        if (rainbowBttn.checked) {
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+            this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        } 
+        else {
+            this.style.backgroundColor = squareColor.value;
+        }
     }
-} 
+}
+
 
 // Function to allow user on touch screen to draw: working progress
-
-
 function onTouch(e) {
     e.preventDefault();
-    this.style.backgroundColor = color.value;
+    this.style.backgroundColor = squareColor.value;
 }
 
-// allow user to erase squares
+// Function will allow user to erase
 function erase() {
-    color.value = "#FFFFFF";
+    squareColor.value = "#d4d4d8";
 }
-
 
 // Reset grid 
 function resetBttn() {
     let squares = document.querySelectorAll(".square");
     squares.forEach(square => {
-        square.style.backgroundColor = "white"
+        square.style.backgroundColor = ""
     })
 
 }
 
-createGrid()
+makeGrid(16);
+
 
 
 

@@ -11,38 +11,48 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header name">
-            <h1>Etch-a-Sketch</h1>
-        </div>
-        <div class="links">
-            <div>
-                <a href="https://github.com/Jhairs2/Etch-a-Sketch/tree/main">My Github</a>
-                <a href="https://www.linkedin.com/in/justhairston11/">My Linkedin</a>
-                <a href="mailto:jhairst2@vols.utk.edu">Email Me</a>
-            </div>
-        </div>
+    <header>
+        <span>Etch-a-Sketch</span>
     </header>
-    <div class="main container">
-        <div class="grid"></div>
-        <div class="button-container">
-            <button class="reset">Reset</button>
-            <button class="eraser">Eraser</button>
-            <div>
-                <label for="colorSelect">Select color:</label>
-                <input type="color" id="colorSelect" name="color" value="#ff0000">
+    <div class="main-container">
+        <div class="options-container">
+            <fieldset class="user-options">
+                <legend>Color Options:</legend>
+                <div>
+                    <label for="bgColor">Background Color:</label>
+                    <input type="color" onchange=changeBackgroundColor() id="bgColor">
+                </div>
+                <div>
+                    <label for="squareColor">Draw Color:</label>
+                    <input type="color" oninput=changeBackgroundColor() id="squareColor">
+                </div>
+                <div>
+                    <label for="rainbow">Rainbow mode:</label>
+                    <input type="checkbox" id="rainbow">
+                </div>
+            </fieldset>
+            <fieldset class="grid-settings">
+                <legend>Grid Options:</legend>
+
+                <div>
+                    <label for="gridSize">Grid Size:</label>
+                    <input type="range" min="2" max="50" oninput=dynamicGrid() id="gridSize">
+                </div>
+                <label for="gridSize" id="gridInfo">16 x 16</label>
+            </fieldset>
+            <div class="user-buttons">
+                <button class="reset">Reset</button>
+                <button class="eraser">Eraser</button>
             </div>
         </div>
-
-        <div class="slidecontainer">
-            <input type="range" min="2" max="50" value="16" class="slider" id="myRange" oninput="createGrid()">
-            <output></output>
-        </div>
-
+        <div class="grid"></div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-info">Copyright © Justin Hairston</div>
+    <footer>
+        <span>Copyright© 2022 Justin Hairston </span>
+        <a href="https://github.com/Jhairs2/Etch-a-Sketch"><img src="./icons/github(1).svg" alt="Github icon"></a>
+        <a href="https://www.linkedin.com/in/justhairston11/"><img src="./icons/linkedin.svg" alt="LinkedIn icon"></a>
+        <a href="mailto:jhairst2@vols.utk.edu"><img src="./icons/at.svg" alt="at symbol"></a>
     </footer>
 
 

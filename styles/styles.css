@@ -1,134 +1,146 @@
-* {
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* Background image created */
-html {
-
-    background-image: url("https://images.unsplash.com/photo-1516053256215-94022213b13c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
+:root {
+    --square-hover-background-color: rgb(108, 108, 108);
+    --background-color: #d4d4d8;
 }
-
 
 body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: var(--background-color);
+    padding: 2em;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 5em;
 }
 
-/* header content */
-.header {
-    width: 100vw;
+header {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.main-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 150px;
-    font-family: Brush Script MT, cursive;
-}
-
-.name {
     justify-content: center;
-    color: black;
-    font-size: 2rem;
-
+    align-items: center;
+    gap: 8em;
 }
 
-.links div {
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 0.5em;
-    display: flex;
-    gap: 2em;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: rgba(255, 255, 255, 90%);
-}
-
-/* End of header content */
-
-/* main container content */
-.main {
+.options-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2em;
+}
+
+.user-options,
+.grid-settings {
+    width: 15rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    gap: 2em;
+    font-size: 1.5rem;
+    border-color: black;
+}
+
+.user-options > div,
+.grid-settings > div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#gridInfo {
+    font-size: 1.5rem;
 }
 
 .grid {
-    touch-action: none;
-    height: 500px;
-    width: 500px;
     display: grid;
-    border: 5px solid black;
+    border: 2px solid black;
+    height: 700px;
+    width: 700px;
+    transition: all 1s ease-in-out;
 }
 
-.button-container {
-    width: 30%;
+.user-buttons {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.button-container div {
-    display: flex;
-    align-items: center;
-}
-
-.slidecontainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.slider:hover {
-    cursor: pointer;
-}
-
-/* End of main container content */
-
-/* Footer Content */
-.footer {
-    height: 75px;
-    display: flex;
-    font-size: 1.5rem;
-    align-items: center;
     justify-content: center;
+    gap: 2em;
 }
-
-.footer-info {
-    color: black;
-}
-
-/* End of footer content */
-
-/* Buttons */
 
 button {
-    font-size: 1rem;
-    width: 115px;
-    background-color: lightgray;
-    border-radius: 6px;
+    height: 2rem;
+    width: 5rem;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 80%);
 }
 
-/* End of button styling */
+.square:hover {
+    background-color: var(--square-hover-background-color);
+    animation: pulse 2s infinite;
 
- @media only screen and (max-width:600px){
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
+}
+
+img:hover {
+    cursor: pointer;
+    filter: invert(0.5);;
+}
+
+footer {
+    display: flex;
+    gap: 1em;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width:600px){
+    .main-container {
+        width:100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .grid {
         max-width: 350px;
-    }
 
-    button {
-        min-width: 75px;
-        margin: 1em;
     }
-} 
+}
